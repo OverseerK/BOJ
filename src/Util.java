@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Util {
@@ -12,7 +14,15 @@ public class Util {
 
         StringBuilder sb = new StringBuilder();
         sb.append("\n");
+
+        //최대최소(여러개)
+//        int max = dp[n - 2][0];
+//        ArrayList<Integer> can = new ArrayList<>(Arrays.asList(dp[n - 2][1], dp[n - 1][0], dp[n - 1][1]));
+//        for (int x : can) {
+//            max = Math.max(max, x);
+//        }
     }
+
     void bfbw() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         bf.readLine();
@@ -42,6 +52,18 @@ public class Util {
             }
         }
         return lo;
+    }
+
+    //DP 기본 포맷
+    static int run(int n) {
+        int[] dp = new int[n + 1];
+        if (n >= 2) dp[2] = 1;
+        if (n >= 3) dp[3] = 1;
+        for (int i = 4; i <= n; i++) {
+            //do something
+            dp[i] = 0;
+        }
+        return dp[n];
     }
 
     static boolean check(int[] a, int mid) {

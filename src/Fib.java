@@ -6,7 +6,7 @@ public class Fib {
 
     static int[] n = new int[666];
 
-    //�⺻dp
+    //기본dp
     static int fib(int i) {
         if (i == 0) {
             return 0;

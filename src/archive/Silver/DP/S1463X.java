@@ -1,6 +1,6 @@
-package archive.Silver;
+package archive.Silver.DP;
 
-public class S1463 {
+public class S1463X {
     //        int n = scan.nextInt();
 //        int c = 0;
 //        ConcurrentHashMap<Integer, Integer> num = new ConcurrentHashMap<>();

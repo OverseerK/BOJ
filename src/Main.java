@@ -1,60 +1,32 @@
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        int g = Integer.parseInt(bf.readLine());
-        int p = Integer.parseInt(bf.readLine());
-        int[] gate = new int[g + 1];
-        int[] queue = new int[p];
-        for (int i = 0; i < p; i++) {
-            queue[i] = Integer.parseInt(bf.readLine());
-        }
-        int res = 0;
-        for (int i = 0; i < p; i++) {
-            int cur = queue[i];
-            int left = 0;
-            for (int j = 1; j < cur; j++) {
-                if (gate[j] == 0) {
-                    left++;
-                }
+        String s = bf.readLine();
+        char[] p = s.toCharArray();
+        for (int i = 0; i < p.length; i++) {
+            char c = p[i];
+            if (c == '*' || c == '/') {
+                s = s.substring(0, i - 1) + "(" + s.substring(i - 1, i + 2) + ")" + s.substring(i + 2);
             }
-            System.out.println("left: " + left);
-            if (left == 0) {
-                if (gate[cur] != 0) {
-                    break;
-                } else {
-                    gate[cur] = cur;
-                    res++;
-                    System.out.println("loc: " + cur);
-                    System.out.println(Arrays.toString(gate) + "\n");
-                    continue;
-                }
+        }
+        System.out.println(s);
+//        for (char c : p) {
+//            if (c == '(') {
+//                s.push(c);
+//            } else {
+//                if (s.isEmpty()) {
+//
+//                } else {
+//                    s.pop();
+//                }
+//            }
+//        }
 
-            }
-            int fnt = 0;
-            int bck = 0;
-            for (int j = i + 1; j < p; j++) {
-                if (left > 0) {
-                    left--;
-                    if (queue[j] <= cur) {
-                        fnt++;
-                    } else {
-                        bck++;
-                    }
-                } else {
-                    break;
-                }
-            }
-            gate[fnt + 1] = cur;
-            res++;
-            System.out.println("fnt: " + fnt + " bck: " + bck);
-            System.out.println("loc: " + (fnt + 1));
-            System.out.println(Arrays.toString(gate) + "\n");
-        }
-        System.out.println(res);
     }
-
 }

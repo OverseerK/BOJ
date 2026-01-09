@@ -1,3 +1,5 @@
+package archive.Gold;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,7 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-public class G14464 {
+public class G14464X {
 
     static int[] hens;
     static int[][] cows;
